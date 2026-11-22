@@ -1194,3 +1194,63 @@ export function stateLabel(state) {
   };
   return labels[state] || state || "Idle";
 }
+
+
+/* ---------- top-down floor sprites (original 16x16, accent-tinted) ---------- */
+const TOP_COLORS = {
+  scout: { shirt: "#e8a838", dark: "#b87a18" },
+  recruiter: { shirt: "#3dbaa0", dark: "#1f7e6c" },
+  concierge: { shirt: "#e07090", dark: "#b44e6a" },
+  creator: { shirt: "#9b7ae8", dark: "#6b4bb8" },
+  accountant: { shirt: "#4cbe6e", dark: "#2a6e3e" },
+  designer: { shirt: "#e8883a", dark: "#b85e1c" },
+  generic: { shirt: "#8b909d", dark: "#4a4e58" },
+};
+
+function resolveKind(kind, character) {
+  const raw = (character || kind || "scout").toString().toLowerCase();
+  const aliases = { finance: "accountant", content: "creator", merch: "designer", "lead-followup": "concierge", lead_followup: "concierge" };
+  let k = CHAR_LABELS[raw] ? raw : (aliases[raw] || "");
+  if (!k) {
+    k = ["designer", "accountant", "concierge", "recruiter", "creator", "scout"].find((key) => raw.includes(key)) || "generic";
+  }
+  return k;
+}
+
+function topDownSvg(kind, frame) {
+  const c = TOP_COLORS[kind] || TOP_COLORS.generic;
+  const legShift = frame === 1 ? 1 : 0;
+  return `<svg viewBox="0 0 16 16" width="24" height="24" shape-rendering="crispEdges" aria-hidden="true">
+    <rect x="5" y="1" width="6" height="5" fill="#f0c9a8"/>
+    <rect x="5" y="1" width="6" height="2" fill="#2b211c"/>
+    <rect x="6" y="3" width="1" height="1" fill="#0e1016"/>
+    <rect x="9" y="3" width="1" height="1" fill="#0e1016"/>
+    <rect x="4" y="6" width="8" height="6" fill="${c.shirt}"/>
+    <rect x="4" y="6" width="2" height="5" fill="${c.dark}"/>
+    <rect x="10" y="6" width="2" height="5" fill="${c.dark}"/>
+    <rect x="5" y="12" width="2" height="3" fill="#2a3348" transform="translate(${legShift},0)"/>
+    <rect x="9" y="12" width="2" height="3" fill="#2a3348" transform="translate(${-legShift},0)"/>
+  </svg>`;
+}
+
+export function syncTopDown(el, { kind, character, state } = {}) {
+  if (!el) return;
+  const k = resolveKind(kind, character);
+  const st = STATES.has(state) ? state : "idle";
+  el.dataset.state = st;
+  el.dataset.kind = k;
+  // Two-frame walk when pacing/scanning; still frame at the desk.
+  const walking = st === "idle" || st === "done" || st === "scanning" || st === "awaiting_approval";
+  el.innerHTML = topDownSvg(k, 0);
+  if (walking && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (el._walk) clearInterval(el._walk);
+    let f = 0;
+    el._walk = setInterval(() => {
+      f = 1 - f;
+      el.innerHTML = topDownSvg(k, f);
+    }, 220);
+  } else if (el._walk) {
+    clearInterval(el._walk);
+    el._walk = null;
+  }
+}

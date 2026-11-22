@@ -1,77 +1,69 @@
 import { getAgents } from "./api.js";
-import { syncCharacter, stateLabel } from "./characters.js";
+import { syncCharacter } from "./characters.js";
+import { renderFloor } from "./floor.js";
+import {
+  STATIC, hudStatus, workLevel, accentOf, characterOf, roomHref, paintStars,
+} from "./hud.js";
 
-const tiles = document.getElementById("tiles");
-const STATIC = Boolean(window.__AGENT_ROOMS_STATIC__);
-
-function badgesFor(agent) {
-  if (Array.isArray(agent.badges) && agent.badges.length) {
-    return agent.badges.map((b) => b.label);
-  }
-  const items = [];
-  if (agent.opportunity_count) items.push(`${agent.opportunity_count} opportunit${agent.opportunity_count === 1 ? "y" : "ies"}`);
-  if (agent.business_count) items.push(`${agent.business_count} business${agent.business_count === 1 ? "" : "es"}`);
-  if (agent.candidate_count) items.push(`${agent.candidate_count} candidate${agent.candidate_count === 1 ? "" : "s"}`);
-  if (agent.lead_count) items.push(`${agent.lead_count} lead${agent.lead_count === 1 ? "" : "s"}`);
-  if (agent.queue_enabled !== false) {
-    items.push(`${agent.draft_count || 0} draft${agent.draft_count === 1 ? "" : "s"}`);
-    if (agent.pending_count) items.push(`${agent.pending_count} pending`);
-  }
-  return items;
-}
+const crewList = document.getElementById("crew-list");
+const crewCount = document.getElementById("crew-count");
+const floor = document.getElementById("floor");
 
 function renderSnapshot() {
   const el = document.getElementById("snapshot-banner");
   if (!el) return;
   if (STATIC && window.__SNAPSHOT_LABEL__) {
     el.hidden = false;
-    el.innerHTML = "<strong>Snapshot</strong> — " + window.__SNAPSHOT_LABEL__ + ". This is a saved view, not a live run.";
+    el.innerHTML = `<strong>SNAPSHOT</strong> — ${window.__SNAPSHOT_LABEL__}. This is a saved view, not a live run. Approve in chat.`;
     document.body.classList.add("static");
+    const sys = document.getElementById("sys-readout");
+    if (sys) sys.textContent = "SYS · SNAPSHOT";
   }
 }
 
-function render(agents) {
-  renderSnapshot();
-
-  tiles.innerHTML = "";
+function renderCrew(agents) {
+  crewCount.textContent = String(agents.length);
+  crewList.innerHTML = "";
   for (const agent of agents) {
     const a = document.createElement("a");
-    const accent = agent.accent || "amber";
-    a.className = `tile accent-${accent}`;
-    a.href = STATIC ? `room/${encodeURIComponent(agent.id)}.html` : `/room/${encodeURIComponent(agent.id)}`;
+    a.className = `crew-row accent-${accentOf(agent)}`;
+    a.href = roomHref(agent.id);
+    const state = agent.state || "idle";
     a.innerHTML = `
-      <div class="tile-char" data-kind="${agent.character || agent.kind}"></div>
-      <div class="tile-body">
-        <div class="tile-top">
-          <span class="light" data-state="${agent.state || "idle"}" title="${stateLabel(agent.state)}"></span>
-          <h2>${agent.name}</h2>
-        </div>
-        <p class="blurb">${agent.blurb || ""}</p>
-        <ul class="counts">${badgesFor(agent).map((c) => `<li>${c}</li>`).join("")}</ul>
-        <div class="tile-status">${stateLabel(agent.state)}${agent.current_step ? " · " + agent.current_step : ""}${agent.live_wired ? "" : " · live feed not wired yet"}</div>
-      </div>`;
-    tiles.appendChild(a);
-    syncCharacter(a.querySelector(".tile-char"), {
-      kind: agent.character || agent.kind,
-      character: agent.character || agent.kind,
-      state: agent.state,
-      size: 96,
+      <div class="crew-avatar"></div>
+      <div>
+        <div class="crew-name">${(agent.short || agent.name || agent.id).toUpperCase()}</div>
+        <div class="crew-status">${hudStatus(state)}</div>
+      </div>
+      <div class="crew-lv">LV ${workLevel(agent)}</div>`;
+    crewList.appendChild(a);
+    syncCharacter(a.querySelector(".crew-avatar"), {
+      kind: characterOf(agent),
+      character: characterOf(agent),
+      state,
+      size: 40,
     });
   }
 }
 
 async function tick() {
   try {
+    let agents;
     if (STATIC && window.__AGENTS_DATA__) {
-      render(window.__AGENTS_DATA__.agents || window.__AGENTS_DATA__ || []);
-      return;
+      agents = window.__AGENTS_DATA__.agents || window.__AGENTS_DATA__ || [];
+    } else {
+      const data = await getAgents();
+      agents = data.agents || [];
     }
-    const data = await getAgents();
-    render(data.agents || []);
+    renderSnapshot();
+    renderCrew(agents);
+    renderFloor(floor, agents);
+    document.body.dataset.awaiting = agents.some((a) => a.state === "awaiting_approval") ? "true" : "false";
   } catch (err) {
-    tiles.innerHTML = `<p class="empty">${err.message}</p>`;
+    crewList.innerHTML = `<p class="empty">${err.message}</p>`;
   }
 }
 
+paintStars(document.getElementById("stars"));
 tick();
 if (!STATIC) setInterval(tick, 2000);

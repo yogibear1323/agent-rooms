@@ -1,6 +1,6 @@
 {
-  "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)",
-  "snapshot_taken": "2026-11-22T10:53:08-07:00",
+  "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)",
+  "snapshot_taken": "2026-11-22T11:19:54-07:00",
   "agents": [
     {
       "id": "scout",
@@ -50,7 +50,7 @@
       "lead_count": 0,
       "draft_count": 2,
       "pending_count": 2,
-      "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)"
     },
     {
       "id": "recruiter",
@@ -96,7 +96,7 @@
       "lead_count": 0,
       "draft_count": 25,
       "pending_count": 25,
-      "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)"
     },
     {
       "id": "content",
@@ -142,7 +142,7 @@
       "lead_count": 0,
       "draft_count": 15,
       "pending_count": 15,
-      "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)"
     },
     {
       "id": "finance",
@@ -180,7 +180,7 @@
       "lead_count": 0,
       "draft_count": 0,
       "pending_count": 0,
-      "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)"
     },
     {
       "id": "lead-followup",
@@ -226,7 +226,7 @@
       "lead_count": 23,
       "draft_count": 23,
       "pending_count": 23,
-      "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)"
     },
     {
       "id": "merch",
@@ -259,7 +259,7 @@
       "lead_count": 0,
       "draft_count": 0,
       "pending_count": 0,
-      "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)"
     }
   ]
 }
