@@ -1,6 +1,7 @@
 import { getRoom, postDecision, startRun } from "./api.js";
 import { syncCharacter, stateLabel } from "./characters.js";
-import { STATIC, hudStatus, workLevel, accentOf, characterOf, paintStars } from "./hud.js";
+import { syncNeighborhood } from "./neighborhood.js";
+import { STATIC, hudStatus, workLevel, accentOf, characterOf, paintStars, formatMST, displayName } from "./hud.js";
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -124,7 +125,9 @@ function renderBanner() {
   const snap = window.__SNAPSHOT_LABEL__ || (room && room.snapshot_label);
   if (STATIC && snap) {
     els.banner.className = "snapshot-banner";
-    els.banner.innerHTML = `<strong>SNAPSHOT</strong> — ${escapeHtml(snap)}. This is a saved view, not a live run. Approve in chat.`;
+    const lastIso = window.__ROOMS_LAST_UPDATED__ || (room && room.status && room.status.last_updated) || room.rooms_last_updated || "";
+    const last = lastIso ? ` Rooms last updated ${formatMST(lastIso)}.` : "";
+    els.banner.innerHTML = `<strong>SNAPSHOT</strong> — ${escapeHtml(snap)}.${last} This is a saved view, not a live run. Approve in chat.`;
     els.banner.hidden = false;
     return;
   }
@@ -140,22 +143,36 @@ function renderBanner() {
 function renderHeader() {
   const st = room.status || {};
   const state = st.state || "idle";
-  document.title = `${room.name} — Agent Hub`;
+  document.title = `${displayName(room)} — Agent Hub`;
   els.room.className = `room-wrap room accent-${accentOf(room)}`;
   els.room.dataset.state = state;
   document.body.classList.toggle("static", STATIC);
   if (els.cols) els.cols.classList.toggle("no-queue", room.queue_enabled === false);
-  els.crumb.textContent = room.short || room.name;
-  els.name.textContent = (room.name || "").toUpperCase();
+  els.crumb.textContent = displayName(room);
+  els.name.textContent = displayName(room).toUpperCase();
   els.light.dataset.state = state;
   els.label.textContent = hudStatus(state);
   els.lv.textContent = `LV ${workLevel(room)}`;
+  const clock = document.getElementById("clock-readout");
+  const lu = (room.status && room.status.last_updated) || room.rooms_last_updated || window.__ROOMS_LAST_UPDATED__ || "";
+  if (clock && lu) clock.textContent = `LAST UPDATED ${formatMST(lu)}`;
+
   const bits = [];
   if (st.current_step) bits.push(`<strong>${escapeHtml(st.current_step)}</strong>`);
   if (st.current_source) bits.push(escapeHtml(st.current_source));
   if (st.error) bits.push(`<span style="color:var(--bad)">${escapeHtml(st.error)}</span>`);
   els.step.innerHTML = bits.join(" · ");
-  syncCharacter(els.char, { kind: characterOf(room), character: characterOf(room), state, size: 128 });
+  const isScout = room.id === "scout";
+  document.getElementById("room")?.classList.toggle("has-neighborhood", isScout);
+  if (els.char) {
+    if (isScout) {
+      els.char.classList.add("neighborhood-stage");
+      syncNeighborhood(els.char, { state });
+    } else {
+      els.char.classList.remove("neighborhood-stage");
+      syncCharacter(els.char, { kind: characterOf(room), character: characterOf(room), state, size: 256 });
+    }
+  }
 
   const badges = room.badges || [];
   els.stats.innerHTML = badges

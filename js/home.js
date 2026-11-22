@@ -3,18 +3,24 @@ import { syncCharacter } from "./characters.js";
 import { renderFloor } from "./floor.js";
 import {
   STATIC, hudStatus, workLevel, accentOf, characterOf, roomHref, paintStars,
+  formatMST, latestRoomUpdate, displayName,
 } from "./hud.js";
 
 const crewList = document.getElementById("crew-list");
 const crewCount = document.getElementById("crew-count");
 const floor = document.getElementById("floor");
 
-function renderSnapshot() {
+function renderSnapshot(agents) {
+  const stamp = (window.__ROOMS_LAST_UPDATED__ || latestRoomUpdate(agents || [])) || "";
+  const pretty = formatMST(stamp);
+  const clock = document.getElementById("clock-readout");
+  if (clock && pretty) clock.textContent = `LAST UPDATED ${pretty}`;
   const el = document.getElementById("snapshot-banner");
   if (!el) return;
   if (STATIC && window.__SNAPSHOT_LABEL__) {
     el.hidden = false;
-    el.innerHTML = `<strong>SNAPSHOT</strong> — ${window.__SNAPSHOT_LABEL__}. This is a saved view, not a live run. Approve in chat.`;
+    const last = pretty ? ` Rooms last updated ${pretty}.` : "";
+    el.innerHTML = `<strong>SNAPSHOT</strong> — ${window.__SNAPSHOT_LABEL__}.${last} This is a saved view, not a live run. Approve in chat.`;
     document.body.classList.add("static");
     const sys = document.getElementById("sys-readout");
     if (sys) sys.textContent = "SYS · SNAPSHOT";
@@ -32,7 +38,7 @@ function renderCrew(agents) {
     a.innerHTML = `
       <div class="crew-avatar"></div>
       <div>
-        <div class="crew-name">${(agent.short || agent.name || agent.id).toUpperCase()}</div>
+        <div class="crew-name">${displayName(agent).toUpperCase()}</div>
         <div class="crew-status">${hudStatus(state)}</div>
       </div>
       <div class="crew-lv">LV ${workLevel(agent)}</div>`;
@@ -41,7 +47,7 @@ function renderCrew(agents) {
       kind: characterOf(agent),
       character: characterOf(agent),
       state,
-      size: 40,
+      size: 56,
     });
   }
 }
@@ -54,8 +60,9 @@ async function tick() {
     } else {
       const data = await getAgents();
       agents = data.agents || [];
+      if (data.rooms_last_updated) window.__ROOMS_LAST_UPDATED__ = data.rooms_last_updated;
     }
-    renderSnapshot();
+    renderSnapshot(agents);
     renderCrew(agents);
     renderFloor(floor, agents);
     document.body.dataset.awaiting = agents.some((a) => a.state === "awaiting_approval") ? "true" : "false";

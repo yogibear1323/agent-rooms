@@ -1,22 +1,23 @@
-import { hudStatus, workLevel, accentOf, characterOf, roomHref } from "./hud.js";
+import { hudStatus, workLevel, accentOf, characterOf, roomHref, displayName } from "./hud.js";
 import { syncTopDown } from "./characters.js";
+import { syncNeighborhood } from "./neighborhood.js";
 
-const TILE = 40;
+const TILE = 48;
 
 const SLOTS = {
   scout: { x: 1.2, y: 1.6 },
   "lead-followup": { x: 6.2, y: 1.6 },
-  recruiter: { x: 1.2, y: 4.6 },
-  content: { x: 6.2, y: 4.6 },
-  finance: { x: 1.2, y: 7.5 },
-  merch: { x: 6.2, y: 7.5 },
+  recruiter: { x: 1.2, y: 6.4 },
+  content: { x: 6.2, y: 6.4 },
+  finance: { x: 1.2, y: 10.0 },
+  merch: { x: 6.2, y: 10.0 },
 };
 
 function slotFor(id, index) {
   if (SLOTS[id]) return SLOTS[id];
   const extras = [
-    { x: 10.5, y: 4.6 },
-    { x: 10.5, y: 7.5 },
+    { x: 10.5, y: 6.4 },
+    { x: 10.5, y: 10.0 },
     { x: 10.5, y: 1.6 },
   ];
   return extras[index % extras.length];
@@ -43,12 +44,16 @@ export function renderFloor(el, agents) {
       const left = slot.x * TILE;
       const top = slot.y * TILE;
       const state = agent.state || "idle";
-      return `<a class="station accent-${accentOf(agent)}" href="${roomHref(agent.id)}" style="left:${left}px;top:${top}px" title="${agent.short || agent.name}">
-        <div class="nametag">${(agent.short || agent.name).toUpperCase()} · LV ${workLevel(agent)}</div>
-        <div class="desk"><div class="monitor"></div></div>
+      const hood = agent.id === "scout";
+      const body = hood
+        ? `<div class="hood-mini" data-id="${agent.id}" data-state="${state}"></div>`
+        : `<div class="desk"><div class="monitor"></div></div>
         <div class="chair"></div>
         <div class="rack" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="sprite-top" data-id="${agent.id}" data-state="${state}"></div>
+        <div class="sprite-top" data-id="${agent.id}" data-state="${state}"></div>`;
+      return `<a class="station ${hood ? "hood-station " : ""}accent-${accentOf(agent)}" href="${roomHref(agent.id)}" style="left:${left}px;top:${top}px" title="${displayName(agent)}">
+        <div class="nametag">${displayName(agent).toUpperCase()} · LV ${workLevel(agent)}</div>
+        ${body}
       </a>`;
     })
     .join("");
@@ -62,15 +67,15 @@ export function renderFloor(el, agents) {
 
   // Belts: Scout -> Lead Follow-up -> Outbox (or Scout -> Outbox if no follow-up)
   const belts = [];
-  const yBelt = 1.6 * TILE + 28;
+  const yBelt = 1.6 * TILE + 36;
   if (hasScout && hasFollow) {
-    const x1 = (SLOTS.scout.x + 3) * TILE - 4;
+    const x1 = (SLOTS.scout.x + 4.4) * TILE - 4;
     const x2 = SLOTS["lead-followup"].x * TILE + 4;
     belts.push(belt(x1, yBelt, x2 - x1));
     const x3 = (SLOTS["lead-followup"].x + 3) * TILE - 4;
     belts.push(belt(x3, yBelt, outLeft - x3 + 4));
   } else if (hasScout) {
-    const x1 = (SLOTS.scout.x + 3) * TILE - 4;
+    const x1 = (SLOTS.scout.x + 4.4) * TILE - 4;
     belts.push(belt(x1, yBelt, outLeft - x1 + 4));
   } else if (hasFollow) {
     const x1 = (SLOTS["lead-followup"].x + 3) * TILE - 4;
@@ -80,8 +85,14 @@ export function renderFloor(el, agents) {
   el.innerHTML = `<div class="deck-floor"></div>${belts.join("")}${stations}${outbox}`;
 
   for (const { agent } of placed) {
-    const spr = el.querySelector(`.sprite-top[data-id="${agent.id}"]`);
-    syncTopDown(spr, { kind: characterOf(agent), character: characterOf(agent), state: agent.state || "idle" });
+    const state = agent.state || "idle";
+    if (agent.id === "scout") {
+      const mini = el.querySelector(`.hood-mini[data-id="${agent.id}"]`);
+      syncNeighborhood(mini, { state });
+    } else {
+      const spr = el.querySelector(`.sprite-top[data-id="${agent.id}"]`);
+      syncTopDown(spr, { kind: characterOf(agent), character: characterOf(agent), state });
+    }
   }
 }
 

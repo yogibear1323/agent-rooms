@@ -22,7 +22,7 @@
       "drafts": 15,
       "pending": 15
     },
-    "last_updated": "2026-11-22T10:48:40-07:00",
+    "last_updated": "2026-11-22T13:34:19-07:00",
     "error": null,
     "current_draft_id": null,
     "inferred": false,
@@ -488,6 +488,160 @@
     },
     {
       "ts": "2026-11-22T10:48:40-07:00",
+      "type": "run_finished",
+      "detail": "15 posts, 15 pending approval"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "run_started",
+      "detail": "Week of 2026-11-23"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "source_scanned",
+      "source": "[redacted-path]content-agent/platforms.yaml",
+      "detail": "platforms.yaml"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "source_scanned",
+      "source": "[redacted-path]content-agent/topics.yaml",
+      "detail": "6 education topics"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "source_scanned",
+      "source": "[redacted-path]content-agent/wins.md",
+      "detail": "0 completed wins"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "item_found",
+      "source": "topics.yaml",
+      "detail": "What consented data licensing is"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "item_found",
+      "source": "topics.yaml",
+      "detail": "Which businesses qualify"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "item_found",
+      "source": "topics.yaml",
+      "detail": "Privacy and consent"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "item_found",
+      "source": "topics.yaml",
+      "detail": "Common myths"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "item_found",
+      "source": "topics.yaml",
+      "detail": "Behind the scenes of building AI agents"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "item_found",
+      "source": "topics.yaml",
+      "detail": "Phoenix small-business angle"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "X · education · 2026-11-23 08:15",
+      "draft_id": "616bc861a7bd"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "X · education · 2026-11-24 08:15",
+      "draft_id": "a0cb4ffbbeb6"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "X · education · 2026-11-25 08:15",
+      "draft_id": "b09f46d16825"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "X · cta · 2026-11-26 08:15",
+      "draft_id": "7d0e54160939"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "X · team_recruit · 2026-11-27 08:15",
+      "draft_id": "16626b46b3b2"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "LinkedIn · education · 2026-11-23 10:30",
+      "draft_id": "54ac4fff1a37"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "LinkedIn · education · 2026-11-24 10:30",
+      "draft_id": "07f5b3217349"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "LinkedIn · education · 2026-11-25 10:30",
+      "draft_id": "e1c354589664"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "LinkedIn · cta · 2026-11-26 10:30",
+      "draft_id": "bec9c2746849"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "LinkedIn · team_recruit · 2026-11-27 10:30",
+      "draft_id": "386fc4fc666a"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "Facebook · education · 2026-11-23 12:00",
+      "draft_id": "017722adc564"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "Facebook · education · 2026-11-24 12:00",
+      "draft_id": "9d58b1ad2643"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "Facebook · education · 2026-11-25 12:00",
+      "draft_id": "194040beeae0"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "Facebook · cta · 2026-11-26 12:00",
+      "draft_id": "fb03e88b3bd7"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
+      "type": "draft_created",
+      "detail": "Facebook · team_recruit · 2026-11-27 12:00",
+      "draft_id": "bef117bb151f"
+    },
+    {
+      "ts": "2026-11-22T13:34:19-07:00",
       "type": "run_finished",
       "detail": "15 posts, 15 pending approval"
     }
@@ -968,6 +1122,7 @@
       "value": "15"
     }
   ],
-  "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)",
-  "snapshot_taken": "2026-11-22T11:19:54-07:00"
+  "snapshot_label": "Snapshot taken 1:38 PM MST (Phoenix)",
+  "snapshot_taken": "2026-11-22T13:38:13-07:00",
+  "rooms_last_updated": "2026-11-22T13:36:27-07:00"
 }

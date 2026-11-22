@@ -1,10 +1,11 @@
 {
-  "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)",
-  "snapshot_taken": "2026-11-22T11:19:54-07:00",
+  "snapshot_label": "Snapshot taken 1:38 PM MST (Phoenix)",
+  "snapshot_taken": "2026-11-22T13:38:13-07:00",
+  "rooms_last_updated": "2026-11-22T13:36:27-07:00",
   "agents": [
     {
       "id": "scout",
-      "name": "Data Referral Scout",
+      "name": "Company Data Asset Profile",
       "short": "Scout",
       "kind": "scout",
       "character": "scout",
@@ -12,14 +13,14 @@
       "invite_url": "https://robertwalker.dataearns.com/invite",
       "blurb": "Finds data and referral bounty programs, scores them, matches businesses, and drafts outreach.",
       "folder_exists": true,
-      "live_wired": false,
-      "live_note": "Live feed not wired yet. Showing existing outputs read-only.",
+      "live_wired": true,
+      "live_note": null,
       "queue_enabled": true,
       "state": "awaiting_approval",
-      "inferred": true,
-      "current_step": "Showing last outputs on disk",
+      "inferred": false,
+      "current_step": "Drafts ready for review",
       "counts": {
-        "sources_scanned": 0,
+        "sources_scanned": 5,
         "items_found": 20,
         "scored": 20,
         "drafts": 2,
@@ -50,7 +51,9 @@
       "lead_count": 0,
       "draft_count": 2,
       "pending_count": 2,
-      "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)"
+      "last_updated": "2026-11-22T13:36:27-07:00",
+      "snapshot_label": "Snapshot taken 1:38 PM MST (Phoenix)",
+      "rooms_last_updated": "2026-11-22T13:36:27-07:00"
     },
     {
       "id": "recruiter",
@@ -62,18 +65,18 @@
       "invite_url": "https://robertwalker.dataearners.com/invite",
       "blurb": "Finds potential DataEarners team members and drafts recruit messages.",
       "folder_exists": true,
-      "live_wired": false,
-      "live_note": "Live feed not wired yet. Showing existing outputs read-only.",
+      "live_wired": true,
+      "live_note": null,
       "queue_enabled": true,
       "state": "awaiting_approval",
-      "inferred": true,
-      "current_step": "Showing last outputs on disk",
+      "inferred": false,
+      "current_step": "Recruit drafts ready",
       "counts": {
         "sources_scanned": 0,
         "items_found": 90,
         "scored": 0,
-        "drafts": 25,
-        "pending": 25
+        "drafts": 10,
+        "pending": 10
       },
       "badges": [
         {
@@ -81,12 +84,12 @@
           "value": "90"
         },
         {
-          "label": "25 drafts",
-          "value": "25"
+          "label": "10 drafts",
+          "value": "10"
         },
         {
-          "label": "25 pending",
-          "value": "25"
+          "label": "10 pending",
+          "value": "10"
         }
       ],
       "run_available": true,
@@ -94,9 +97,11 @@
       "business_count": 0,
       "candidate_count": 90,
       "lead_count": 0,
-      "draft_count": 25,
-      "pending_count": 25,
-      "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)"
+      "draft_count": 10,
+      "pending_count": 10,
+      "last_updated": "2026-11-22T13:34:17-07:00",
+      "snapshot_label": "Snapshot taken 1:38 PM MST (Phoenix)",
+      "rooms_last_updated": "2026-11-22T13:36:27-07:00"
     },
     {
       "id": "content",
@@ -142,7 +147,9 @@
       "lead_count": 0,
       "draft_count": 15,
       "pending_count": 15,
-      "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)"
+      "last_updated": "2026-11-22T13:34:19-07:00",
+      "snapshot_label": "Snapshot taken 1:38 PM MST (Phoenix)",
+      "rooms_last_updated": "2026-11-22T13:36:27-07:00"
     },
     {
       "id": "finance",
@@ -180,7 +187,9 @@
       "lead_count": 0,
       "draft_count": 0,
       "pending_count": 0,
-      "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)"
+      "last_updated": "2026-11-22T13:34:18-07:00",
+      "snapshot_label": "Snapshot taken 1:38 PM MST (Phoenix)",
+      "rooms_last_updated": "2026-11-22T13:36:27-07:00"
     },
     {
       "id": "lead-followup",
@@ -199,8 +208,8 @@
       "inferred": false,
       "current_step": "Drafts ready for review",
       "counts": {
-        "sources_scanned": 3,
-        "items_found": 473,
+        "sources_scanned": 1,
+        "items_found": 3,
         "scored": 0,
         "drafts": 23,
         "pending": 23
@@ -226,7 +235,9 @@
       "lead_count": 23,
       "draft_count": 23,
       "pending_count": 23,
-      "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)"
+      "last_updated": "2026-11-22T13:34:57-07:00",
+      "snapshot_label": "Snapshot taken 1:38 PM MST (Phoenix)",
+      "rooms_last_updated": "2026-11-22T13:36:27-07:00"
     },
     {
       "id": "merch",
@@ -238,18 +249,18 @@
       "invite_url": null,
       "blurb": "Scores t-shirt and mug niches, drafts typography designs and Etsy/Redbubble listing copy. Nothing is listed until Robert approves.",
       "folder_exists": true,
-      "live_wired": false,
-      "live_note": "Live feed not wired yet. Showing existing outputs read-only.",
+      "live_wired": true,
+      "live_note": null,
       "queue_enabled": true,
-      "state": "idle",
-      "inferred": true,
-      "current_step": "Idle",
+      "state": "awaiting_approval",
+      "inferred": false,
+      "current_step": "Listings ready for review (not published)",
       "counts": {
-        "sources_scanned": 0,
-        "items_found": 0,
-        "scored": 0,
-        "drafts": 0,
-        "pending": 0
+        "sources_scanned": 1,
+        "items_found": 15,
+        "scored": 15,
+        "drafts": 4,
+        "pending": 4
       },
       "badges": [],
       "run_available": false,
@@ -258,8 +269,10 @@
       "candidate_count": 0,
       "lead_count": 0,
       "draft_count": 0,
-      "pending_count": 0,
-      "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)"
+      "pending_count": 4,
+      "last_updated": "2026-11-22T13:34:51-07:00",
+      "snapshot_label": "Snapshot taken 1:38 PM MST (Phoenix)",
+      "rooms_last_updated": "2026-11-22T13:36:27-07:00"
     }
   ]
 }

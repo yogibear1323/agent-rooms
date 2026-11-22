@@ -8,27 +8,108 @@
   "invite_url": "https://robertwalker.dataearners.com/invite",
   "blurb": "Finds potential DataEarners team members and drafts recruit messages.",
   "folder_exists": true,
-  "live_wired": false,
-  "live_note": "Live feed not wired yet. Showing existing outputs read-only.",
+  "live_wired": true,
+  "live_note": null,
   "queue_enabled": true,
   "status": {
     "state": "awaiting_approval",
-    "current_step": "Showing last outputs on disk",
+    "current_step": "Recruit drafts ready",
     "current_source": null,
     "counts": {
       "sources_scanned": 0,
       "items_found": 90,
       "scored": 0,
-      "drafts": 25,
-      "pending": 25
+      "drafts": 10,
+      "pending": 10
     },
-    "last_updated": null,
+    "last_updated": "2026-11-22T13:34:17-07:00",
     "error": null,
     "current_draft_id": null,
-    "inferred": true,
-    "live_wired": false
+    "inferred": false,
+    "live_wired": true
   },
-  "events": [],
+  "events": [
+    {
+      "ts": "2026-11-22T13:34:17-07:00",
+      "type": "run_started",
+      "detail": "Recruiter draft rebuild (no email is sent)"
+    },
+    {
+      "ts": "2026-11-22T13:34:17-07:00",
+      "type": "draft_created",
+      "detail": "Philip Handke",
+      "draft_id": "Philip Handke",
+      "message_type": null
+    },
+    {
+      "ts": "2026-11-22T13:34:17-07:00",
+      "type": "draft_created",
+      "detail": "Derek Eligio",
+      "draft_id": "Derek Eligio",
+      "message_type": null
+    },
+    {
+      "ts": "2026-11-22T13:34:17-07:00",
+      "type": "draft_created",
+      "detail": "Patrick PILEWSKI",
+      "draft_id": "Patrick PILEWSKI",
+      "message_type": null
+    },
+    {
+      "ts": "2026-11-22T13:34:17-07:00",
+      "type": "draft_created",
+      "detail": "AlFred Zirkle",
+      "draft_id": "AlFred Zirkle",
+      "message_type": null
+    },
+    {
+      "ts": "2026-11-22T13:34:17-07:00",
+      "type": "draft_created",
+      "detail": "Andrew Zaplitny",
+      "draft_id": "Andrew Zaplitny",
+      "message_type": null
+    },
+    {
+      "ts": "2026-11-22T13:34:17-07:00",
+      "type": "draft_created",
+      "detail": "Beth Mickley",
+      "draft_id": "Beth Mickley",
+      "message_type": null
+    },
+    {
+      "ts": "2026-11-22T13:34:17-07:00",
+      "type": "draft_created",
+      "detail": "Bob Lais",
+      "draft_id": "Bob Lais",
+      "message_type": null
+    },
+    {
+      "ts": "2026-11-22T13:34:17-07:00",
+      "type": "draft_created",
+      "detail": "Bob Winegar",
+      "draft_id": "Bob Winegar",
+      "message_type": null
+    },
+    {
+      "ts": "2026-11-22T13:34:17-07:00",
+      "type": "draft_created",
+      "detail": "Brian Buzard",
+      "draft_id": "Brian Buzard",
+      "message_type": null
+    },
+    {
+      "ts": "2026-11-22T13:34:17-07:00",
+      "type": "draft_created",
+      "detail": "Brittney Knutson",
+      "draft_id": "Brittney Knutson",
+      "message_type": null
+    },
+    {
+      "ts": "2026-11-22T13:34:17-07:00",
+      "type": "run_finished",
+      "detail": "Wrote 10 drafts. Nothing was sent."
+    }
+  ],
   "drafts": [
     {
       "id": "14b671870977",
@@ -132,171 +213,6 @@
     {
       "id": "fbedab66ff5a",
       "to_name": "Brittney Knutson",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "938b76f918ea",
-      "to_name": "Bruce Schultz",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "198c51048f7e",
-      "to_name": "Chris Sampras",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "2a5729be5d97",
-      "to_name": "Conrad Greene",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "802710f81b30",
-      "to_name": "Darrell Doust",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "6bca9c4fb143",
-      "to_name": "David Long",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "b91153ca1589",
-      "to_name": "Dr. Leilani Felix-Acosta DBA MBA CM&AP",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "f3d6cb95a0b5",
-      "to_name": "Eddy Roche",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "11b4055f99b9",
-      "to_name": "Gavin Stinson",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "b6cc744bef34",
-      "to_name": "Janice Staropoli",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "8d5df652d534",
-      "to_name": "Jason Grindall",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "e1e61cf1d25e",
-      "to_name": "Jennifer Armstrong",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "a119a4b0cdb7",
-      "to_name": "John Byrne",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "2b3ff9ca23b3",
-      "to_name": "John Cox",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "b4cfa0c55d1c",
-      "to_name": "Kelly Villaescusa",
-      "subject": null,
-      "landing_url": "https://robertwalker.dataearners.com/invite",
-      "opportunity": null,
-      "opportunity_url": null,
-      "message_type": null,
-      "decision": null,
-      "decision_at": null
-    },
-    {
-      "id": "a3af22df4dbc",
-      "to_name": "Ken Mackey",
       "subject": null,
       "landing_url": "https://robertwalker.dataearners.com/invite",
       "opportunity": null,
@@ -1957,14 +1873,15 @@
       "value": "90"
     },
     {
-      "label": "25 drafts",
-      "value": "25"
+      "label": "10 drafts",
+      "value": "10"
     },
     {
-      "label": "25 pending",
-      "value": "25"
+      "label": "10 pending",
+      "value": "10"
     }
   ],
-  "snapshot_label": "Snapshot taken 11:19 AM MST (Phoenix)",
-  "snapshot_taken": "2026-11-22T11:19:54-07:00"
+  "snapshot_label": "Snapshot taken 1:38 PM MST (Phoenix)",
+  "snapshot_taken": "2026-11-22T13:38:13-07:00",
+  "rooms_last_updated": "2026-11-22T13:36:27-07:00"
 }

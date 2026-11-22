@@ -1136,7 +1136,7 @@ function artFor(kind) {
 function renderSvg(kind, state, size) {
   const art = artFor(kind);
   const label = CHAR_LABELS[kind] || "Agent";
-  return `<svg class="char" data-kind="${kind}" data-state="${state}" viewBox="0 0 32 32" width="${size}" height="${size}" role="img" aria-label="${label} character, ${state}">
+  return `<svg class="char" data-kind="${kind}" data-state="${state}" viewBox="0 0 32 32" width="${size}" height="${size}" role="img" aria-label="${label} character, ${state}" shape-rendering="crispEdges" style="image-rendering:pixelated">
     <rect width="32" height="32" fill="#10131a"/>
     ${runsToRects(CHAIR, "px")}
     <g class="actor">
@@ -1161,7 +1161,7 @@ function renderSvg(kind, state, size) {
 
 export const KNOWN_CHARACTERS = Object.keys(CHAR_LABELS);
 
-export function syncCharacter(el, { kind, character, state, size = 128 } = {}) {
+export function syncCharacter(el, { kind, character, state, size = 256 } = {}) {
   if (!el) return;
   const raw = (character || kind || "scout").toString().toLowerCase();
   const aliases = { finance: "accountant", content: "creator", merch: "designer", "lead-followup": "concierge", lead_followup: "concierge" };
@@ -1220,7 +1220,7 @@ function resolveKind(kind, character) {
 function topDownSvg(kind, frame) {
   const c = TOP_COLORS[kind] || TOP_COLORS.generic;
   const legShift = frame === 1 ? 1 : 0;
-  return `<svg viewBox="0 0 16 16" width="24" height="24" shape-rendering="crispEdges" aria-hidden="true">
+  return `<svg viewBox="0 0 16 16" width="48" height="48" shape-rendering="crispEdges" style="image-rendering:pixelated" aria-hidden="true">
     <rect x="5" y="1" width="6" height="5" fill="#f0c9a8"/>
     <rect x="5" y="1" width="6" height="2" fill="#2b211c"/>
     <rect x="6" y="3" width="1" height="1" fill="#0e1016"/>
