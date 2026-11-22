@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finance — Agent Rooms</title>
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body class="static">
+  <div class="wrap room" id="room">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <div class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="brand-text">
+          <strong>Agent Rooms</strong>
+          <span class="crumb"><a href="../index.html">Home</a> / <span id="crumb-name">Room</span></span>
+        </div>
+      </a>
+      <div class="crumb">127.0.0.1 · nothing is sent from here</div>
+    </header>
+
+    <div id="live-banner" class="banner hidden"></div>
+
+    <div class="room-head">
+      <div class="char-card">
+        <div class="char-stage" id="char-stage"></div>
+      </div>
+      <div class="head-meta">
+        <h1 id="agent-name">Agent</h1>
+        <div class="state-row">
+          <span class="light" id="state-light" data-state="idle"></span>
+          <span class="state-label" id="state-label">Idle</span>
+          <span class="step" id="step"></span>
+        </div>
+      </div>
+      <div class="head-actions">
+        <button type="button" class="primary" id="run-btn" disabled>Run</button>
+        <div class="run-note" id="run-note"></div>
+      </div>
+    </div>
+
+    <div class="cols">
+      <section class="panel" id="sources-panel">
+        <div class="panel-head">
+          <h2 class="head-with-radar">
+            Sources being scanned
+            <span class="radar" id="radar" data-active="false" aria-hidden="true">
+              <span class="radar-ring"></span>
+              <span class="radar-ring"></span>
+              <span class="radar-dot"></span>
+            </span>
+          </h2>
+        </div>
+        <div class="feed" id="source-feed"></div>
+      </section>
+
+      <section class="panel draft-pane">
+        <div class="panel-head"><h2>Now drafting</h2></div>
+        <div class="draft-meta" id="draft-meta"></div>
+        <div class="draft-body" id="draft-body"></div>
+        <textarea class="draft-edit" id="draft-edit" hidden></textarea>
+        <div class="draft-actions" id="draft-actions" hidden></div>
+      </section>
+
+      <section class="panel" id="queue-panel">
+        <div class="panel-head">
+          <h2>Queue <span class="queue-badge" id="queue-badge">0</span></h2>
+        </div>
+        <div class="queue" id="queue"></div>
+      </section>
+    </div>
+
+    <div class="lower" id="lower"></div>
+
+    <section class="panel console" id="console-wrap" hidden>
+      <div class="panel-head"><h2>Run console</h2></div>
+      <pre id="console-log"></pre>
+    </section>
+
+    <p class="footer-note">
+      Approve and reject only save a decision in <code>room/decisions.json</code>.
+      This dashboard does not send mail. File contract: <a href="../README.md">CONTRACT.md</a>
+    </p>
+  </div>
+  <script>
+window.__AGENT_ROOMS_STATIC__ = true;
+window.__SNAPSHOT_LABEL__ = "Snapshot taken 10:47 AM MST (Phoenix)";
+window.__ROOM_DATA__ = {"id": "finance", "name": "Finance", "short": "Finance", "kind": "finance", "character": "accountant", "accent": "green", "invite_url": null, "blurb": "Tracks real payouts and earnings per income source and per agent. Manual CSV imports only — no bank connection.", "folder_exists": true, "live_wired": false, "live_note": "Live feed not wired yet. Showing existing outputs read-only.", "queue_enabled": false, "status": {"state": "idle", "current_step": "Idle", "current_source": null, "counts": {"sources_scanned": 0, "items_found": 0, "scored": 0, "drafts": 0, "pending": 0}, "last_updated": null, "error": null, "current_draft_id": null, "inferred": true, "live_wired": false}, "events": [], "drafts": [], "opportunities": [], "businesses": [], "candidates": [], "leads": [], "content": [], "merch": [], "income": {"totals": [], "items": []}, "panels": [{"type": "income", "title": "Income", "totals": [], "items": [], "period": null}], "run": {"available": false, "running": false, "detected_command": null, "note": "Snapshot only — run the agent from the local dashboard."}, "badges": [], "snapshot_label": "Snapshot taken 10:47 AM MST (Phoenix)", "snapshot_taken": "2026-11-22T10:47:24-07:00"};
+</script>
+<script type="module" src="../js/room.js"></script>
+</body>
+</html>
