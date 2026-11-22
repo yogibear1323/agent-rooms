@@ -1,6 +1,6 @@
 {
-  "snapshot_label": "Snapshot taken 10:47 AM MST (Phoenix)",
-  "snapshot_taken": "2026-11-22T10:47:24-07:00",
+  "snapshot_label": "Snapshot taken 10:51 AM MST (Phoenix)",
+  "snapshot_taken": "2026-11-22T10:51:44-07:00",
   "agents": [
     {
       "id": "scout",
@@ -50,7 +50,7 @@
       "lead_count": 0,
       "draft_count": 2,
       "pending_count": 2,
-      "snapshot_label": "Snapshot taken 10:47 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 10:51 AM MST (Phoenix)"
     },
     {
       "id": "recruiter",
@@ -96,7 +96,7 @@
       "lead_count": 0,
       "draft_count": 25,
       "pending_count": 25,
-      "snapshot_label": "Snapshot taken 10:47 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 10:51 AM MST (Phoenix)"
     },
     {
       "id": "content",
@@ -108,28 +108,41 @@
       "invite_url": "https://robertwalker.dataearns.com/invite",
       "blurb": "Drafts a weekly social calendar about real wins and the DataEarners opportunity. Nothing is posted until Robert approves.",
       "folder_exists": true,
-      "live_wired": false,
-      "live_note": "Live feed not wired yet. Showing existing outputs read-only.",
+      "live_wired": true,
+      "live_note": null,
       "queue_enabled": true,
-      "state": "idle",
-      "inferred": true,
-      "current_step": "Idle",
+      "state": "awaiting_approval",
+      "inferred": false,
+      "current_step": "Drafts ready for review",
       "counts": {
-        "sources_scanned": 0,
-        "items_found": 0,
+        "sources_scanned": 3,
+        "items_found": 6,
         "scored": 0,
-        "drafts": 0,
-        "pending": 0
+        "drafts": 15,
+        "pending": 15
       },
-      "badges": [],
+      "badges": [
+        {
+          "label": "15 items",
+          "value": "15"
+        },
+        {
+          "label": "15 drafts",
+          "value": "15"
+        },
+        {
+          "label": "15 pending",
+          "value": "15"
+        }
+      ],
       "run_available": true,
       "opportunity_count": 0,
       "business_count": 0,
       "candidate_count": 0,
       "lead_count": 0,
-      "draft_count": 0,
-      "pending_count": 0,
-      "snapshot_label": "Snapshot taken 10:47 AM MST (Phoenix)"
+      "draft_count": 15,
+      "pending_count": 15,
+      "snapshot_label": "Snapshot taken 10:51 AM MST (Phoenix)"
     },
     {
       "id": "finance",
@@ -141,12 +154,12 @@
       "invite_url": null,
       "blurb": "Tracks real payouts and earnings per income source and per agent. Manual CSV imports only — no bank connection.",
       "folder_exists": true,
-      "live_wired": false,
-      "live_note": "Live feed not wired yet. Showing existing outputs read-only.",
+      "live_wired": true,
+      "live_note": null,
       "queue_enabled": false,
       "state": "idle",
-      "inferred": true,
-      "current_step": "Idle",
+      "inferred": false,
+      "current_step": "No data yet",
       "counts": {
         "sources_scanned": 0,
         "items_found": 0,
@@ -154,7 +167,12 @@
         "drafts": 0,
         "pending": 0
       },
-      "badges": [],
+      "badges": [
+        {
+          "label": "5 income tiles",
+          "value": "5"
+        }
+      ],
       "run_available": true,
       "opportunity_count": 0,
       "business_count": 0,
@@ -162,7 +180,53 @@
       "lead_count": 0,
       "draft_count": 0,
       "pending_count": 0,
-      "snapshot_label": "Snapshot taken 10:47 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 10:51 AM MST (Phoenix)"
+    },
+    {
+      "id": "lead-followup",
+      "name": "Lead Follow-up",
+      "short": "Follow-up",
+      "kind": "followup",
+      "character": "concierge",
+      "accent": "rose",
+      "invite_url": "https://robertwalker.dataearns.com/invite",
+      "blurb": "Nurtures free data-check sign-ups and drafts LeadGlobe cold follow-ups, one at a time. Nothing is sent until Robert approves.",
+      "folder_exists": true,
+      "live_wired": true,
+      "live_note": null,
+      "queue_enabled": true,
+      "state": "awaiting_approval",
+      "inferred": false,
+      "current_step": "Drafts ready for review",
+      "counts": {
+        "sources_scanned": 3,
+        "items_found": 473,
+        "scored": 0,
+        "drafts": 23,
+        "pending": 23
+      },
+      "badges": [
+        {
+          "label": "23 leads",
+          "value": "23"
+        },
+        {
+          "label": "23 drafts",
+          "value": "23"
+        },
+        {
+          "label": "23 pending",
+          "value": "23"
+        }
+      ],
+      "run_available": true,
+      "opportunity_count": 0,
+      "business_count": 0,
+      "candidate_count": 0,
+      "lead_count": 23,
+      "draft_count": 23,
+      "pending_count": 23,
+      "snapshot_label": "Snapshot taken 10:51 AM MST (Phoenix)"
     }
   ]
 }

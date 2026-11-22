@@ -230,10 +230,13 @@ function renderCenter() {
     els.draftMeta.innerHTML = `<span>No draft selected.</span>`;
     els.draftBody.hidden = false;
     els.draftEdit.hidden = true;
+    const financeRoom = room.queue_enabled === false || room.kind === "finance" || room.character === "accountant";
     els.draftBody.textContent = room.folder_exists
-      ? (room.kind === "scout"
+      ? (financeRoom
+        ? "This agent has no draft queue. Income tiles are on the right and below. Nothing is sent from this room."
+        : (room.kind === "scout"
         ? "When the scout writes outreach, the current email will appear here. Nothing is sent from this room."
-        : "When the recruiter writes a message, the current draft will appear here. Nothing is sent from this room.")
+        : "When the agent writes a message, the current draft will appear here. Nothing is sent from this room."))
       : "This agent folder is not on disk yet.";
     els.draftActions.hidden = true;
     return;
@@ -272,9 +275,32 @@ function labelMessage(t) {
   return t;
 }
 
+function incomePayload() {
+  if (room.income && ((room.income.totals || []).length || (room.income.items || []).length)) {
+    return room.income;
+  }
+  return (room.panels || []).find((p) => p.type === "income") || { totals: [], items: [] };
+}
+
 function renderQueue() {
   const queuePanel = document.getElementById("queue-panel");
   if (room.queue_enabled === false) {
+    const inc = incomePayload();
+    const hasTiles = (inc.totals || []).length > 0;
+    if (hasTiles) {
+      const cols = document.querySelector(".cols");
+      if (cols) cols.classList.remove("no-queue");
+      if (queuePanel) queuePanel.hidden = false;
+      const head = queuePanel && queuePanel.querySelector("h2");
+      if (head) {
+        head.innerHTML = `Income <span class="queue-badge" id="queue-badge">${inc.totals.length}</span>`;
+        els.queueBadge = document.getElementById("queue-badge") || els.queueBadge;
+      }
+      const note = inc.message ? `<div class="empty" style="border:0">${escapeHtml(inc.message)}</div>` : "";
+      const period = inc.period ? `<div class="empty" style="border:0">${escapeHtml(inc.period)}</div>` : "";
+      els.queue.innerHTML = period + note + renderPanel({ type: "income", totals: inc.totals, items: [] });
+      return;
+    }
     if (queuePanel) queuePanel.hidden = true;
     return;
   }
@@ -311,7 +337,7 @@ function fmtMoney(amount, currency) {
   if (amount == null || amount === "") return "—";
   if (typeof amount === "number") {
     try {
-      return new Intl.NumberFormat("en-US", { style: "currency", currency: currency || "USD", maximumFractionDigits: 0 }).format(amount);
+      return new Intl.NumberFormat("en-US", { style: "currency", currency: currency || "USD", minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amount);
     } catch {
       return String(amount);
     }
@@ -323,12 +349,24 @@ function renderPanel(panel) {
   const typ = panel.type;
   if (typ === "income") {
     const totals = panel.totals || [];
-    if (!totals.length) return `<div class="empty">No income totals yet.</div>`;
-    return `<div class="income-tiles">${totals.map((t) => `
+    const incItems = panel.items || [];
+    if (!totals.length && !incItems.length) {
+      return `<div class="empty">No data yet. Import payout CSVs into inbox/ and run the Finance agent.</div>`;
+    }
+    const tiles = totals.length ? `<div class="income-tiles">${totals.map((t) => `
       <div class="income-tile">
         <div class="ilabel">${escapeHtml(t.label)}</div>
         <div class="iamt">${escapeHtml(fmtMoney(t.amount, t.currency))}</div>
-      </div>`).join("")}</div>`;
+      </div>`).join("")}</div>` : "";
+    const rows = incItems.length ? incItems.map((item) => {
+      const name = escapeHtml(item.label || item.name || "");
+      const meta = item.summary || item.date || "";
+      return `<article class="row">
+        <div class="rtitle"><span>${name}</span><span class="score">${escapeHtml(fmtMoney(item.amount, item.currency))}</span></div>
+        ${meta ? `<div class="rmeta">${escapeHtml(meta)}</div>` : ""}
+      </article>`;
+    }).join("") : "";
+    return tiles + rows;
   }
   const items = panel.items || [];
   if (!items.length) {
