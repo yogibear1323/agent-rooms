@@ -1,6 +1,6 @@
 {
-  "snapshot_label": "Snapshot taken 10:51 AM MST (Phoenix)",
-  "snapshot_taken": "2026-11-22T10:51:44-07:00",
+  "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)",
+  "snapshot_taken": "2026-11-22T10:53:08-07:00",
   "agents": [
     {
       "id": "scout",
@@ -50,7 +50,7 @@
       "lead_count": 0,
       "draft_count": 2,
       "pending_count": 2,
-      "snapshot_label": "Snapshot taken 10:51 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)"
     },
     {
       "id": "recruiter",
@@ -96,7 +96,7 @@
       "lead_count": 0,
       "draft_count": 25,
       "pending_count": 25,
-      "snapshot_label": "Snapshot taken 10:51 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)"
     },
     {
       "id": "content",
@@ -142,7 +142,7 @@
       "lead_count": 0,
       "draft_count": 15,
       "pending_count": 15,
-      "snapshot_label": "Snapshot taken 10:51 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)"
     },
     {
       "id": "finance",
@@ -180,7 +180,7 @@
       "lead_count": 0,
       "draft_count": 0,
       "pending_count": 0,
-      "snapshot_label": "Snapshot taken 10:51 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)"
     },
     {
       "id": "lead-followup",
@@ -226,7 +226,40 @@
       "lead_count": 23,
       "draft_count": 23,
       "pending_count": 23,
-      "snapshot_label": "Snapshot taken 10:51 AM MST (Phoenix)"
+      "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)"
+    },
+    {
+      "id": "merch",
+      "name": "Merch Agent",
+      "short": "Merch",
+      "kind": "merch",
+      "character": "designer",
+      "accent": "orange",
+      "invite_url": null,
+      "blurb": "Scores t-shirt and mug niches, drafts typography designs and Etsy/Redbubble listing copy. Nothing is listed until Robert approves.",
+      "folder_exists": true,
+      "live_wired": false,
+      "live_note": "Live feed not wired yet. Showing existing outputs read-only.",
+      "queue_enabled": true,
+      "state": "idle",
+      "inferred": true,
+      "current_step": "Idle",
+      "counts": {
+        "sources_scanned": 0,
+        "items_found": 0,
+        "scored": 0,
+        "drafts": 0,
+        "pending": 0
+      },
+      "badges": [],
+      "run_available": false,
+      "opportunity_count": 0,
+      "business_count": 0,
+      "candidate_count": 0,
+      "lead_count": 0,
+      "draft_count": 0,
+      "pending_count": 0,
+      "snapshot_label": "Snapshot taken 10:53 AM MST (Phoenix)"
     }
   ]
 }
