@@ -4,7 +4,7 @@ A **static snapshot** of Robert Walker's local Agent Rooms dashboard.
 It is not a live run. Agents are not executing here, and this site cannot
 send email or record an approve / reject decision. **Approve in chat.**
 
-**Snapshot taken 8:00 AM MST (Phoenix)**
+**Snapshot taken 6:31 PM MST (Phoenix)**
 
 Each agent has its own room. Characters and status lights reflect the
 saved state from that snapshot.

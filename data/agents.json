@@ -1,6 +1,6 @@
 {
-  "snapshot_label": "Snapshot taken 8:00 AM MST (Phoenix)",
-  "snapshot_taken": "2026-11-24T08:00:01-07:00",
+  "snapshot_label": "Snapshot taken 6:31 PM MST (Phoenix)",
+  "snapshot_taken": "2026-11-24T18:31:46-07:00",
   "rooms_last_updated": "2026-11-22T13:36:27-07:00",
   "agents": [
     {
@@ -52,7 +52,7 @@
       "draft_count": 2,
       "pending_count": 2,
       "last_updated": "2026-11-22T13:36:27-07:00",
-      "snapshot_label": "Snapshot taken 8:00 AM MST (Phoenix)",
+      "snapshot_label": "Snapshot taken 6:31 PM MST (Phoenix)",
       "rooms_last_updated": "2026-11-22T13:36:27-07:00"
     },
     {
@@ -100,7 +100,7 @@
       "draft_count": 10,
       "pending_count": 10,
       "last_updated": "2026-11-22T13:34:17-07:00",
-      "snapshot_label": "Snapshot taken 8:00 AM MST (Phoenix)",
+      "snapshot_label": "Snapshot taken 6:31 PM MST (Phoenix)",
       "rooms_last_updated": "2026-11-22T13:36:27-07:00"
     },
     {
@@ -148,7 +148,7 @@
       "draft_count": 15,
       "pending_count": 15,
       "last_updated": "2026-11-22T13:34:19-07:00",
-      "snapshot_label": "Snapshot taken 8:00 AM MST (Phoenix)",
+      "snapshot_label": "Snapshot taken 6:31 PM MST (Phoenix)",
       "rooms_last_updated": "2026-11-22T13:36:27-07:00"
     },
     {
@@ -188,7 +188,7 @@
       "draft_count": 0,
       "pending_count": 0,
       "last_updated": "2026-11-22T13:34:18-07:00",
-      "snapshot_label": "Snapshot taken 8:00 AM MST (Phoenix)",
+      "snapshot_label": "Snapshot taken 6:31 PM MST (Phoenix)",
       "rooms_last_updated": "2026-11-22T13:36:27-07:00"
     },
     {
@@ -236,7 +236,7 @@
       "draft_count": 23,
       "pending_count": 23,
       "last_updated": "2026-11-22T13:34:57-07:00",
-      "snapshot_label": "Snapshot taken 8:00 AM MST (Phoenix)",
+      "snapshot_label": "Snapshot taken 6:31 PM MST (Phoenix)",
       "rooms_last_updated": "2026-11-22T13:36:27-07:00"
     },
     {
@@ -271,7 +271,7 @@
       "draft_count": 0,
       "pending_count": 4,
       "last_updated": "2026-11-22T13:34:51-07:00",
-      "snapshot_label": "Snapshot taken 8:00 AM MST (Phoenix)",
+      "snapshot_label": "Snapshot taken 6:31 PM MST (Phoenix)",
       "rooms_last_updated": "2026-11-22T13:36:27-07:00"
     }
   ]

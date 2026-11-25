@@ -179,7 +179,7 @@
     "note": "Snapshot only — run the agent from the local dashboard."
   },
   "badges": [],
-  "snapshot_label": "Snapshot taken 8:00 AM MST (Phoenix)",
-  "snapshot_taken": "2026-11-24T08:00:01-07:00",
+  "snapshot_label": "Snapshot taken 6:31 PM MST (Phoenix)",
+  "snapshot_taken": "2026-11-24T18:31:46-07:00",
   "rooms_last_updated": "2026-11-22T13:36:27-07:00"
 }
